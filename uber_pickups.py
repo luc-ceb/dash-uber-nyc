@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('Uber pickups in NYC')
+st.title('Uber pickups in NYC by Luciano Ceballos')
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
@@ -34,3 +34,10 @@ filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 
 st.subheader('Map of all pickups at %s:00' % hour_to_filter)
 st.map(filtered_data)
+
+st.title('Ejemplo puntos sobre la Ciudad de Cordoba')
+map_data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [-31.365,-64.245],
+    columns=['lat', 'lon'])
+
+st.map(map_data)
